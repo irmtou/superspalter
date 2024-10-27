@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Jump() {
-        rb.velocity = new Vector2(rb.velocity.x, 10f);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         state = State.jumping;
     }
 
