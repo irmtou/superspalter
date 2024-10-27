@@ -51,3 +51,15 @@ TagManager:
   - name: Foreground
     uniqueID: 2360887259
     locked: 0
+  - name: Ground
+    uniqueID: 802508347
+    locked: 0
+  - name: GroundExtras
+    uniqueID: 3939931093
+    locked: 0
+  - name: CollisionObjects
+    uniqueID: 851719441
+    locked: 0
+  - name: Entity-TD
+    uniqueID: 1084242477
+    locked: 0
