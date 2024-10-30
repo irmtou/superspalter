@@ -51,6 +51,9 @@ TagManager:
   - name: Foreground
     uniqueID: 2360887259
     locked: 0
+  - name: OutOfBounds
+    uniqueID: 496426805
+    locked: 0
   - name: Ground
     uniqueID: 802508347
     locked: 0
