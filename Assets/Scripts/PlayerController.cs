@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour {
     // Start variables
     private Rigidbody2D rb;
     private Animator anim;
-    private Collider2D coll;
+    private BoxCollider2D feet;
+    private CapsuleCollider2D body;
+    // private Collider2D body;
 
     // FSM
     private enum State { idle, walking, jumping, falling, hurt, running };
@@ -27,7 +29,9 @@ public class PlayerController : MonoBehaviour {
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        coll = GetComponent<Collider2D>();
+        feet = GetComponent<BoxCollider2D>();
+        body = GetComponent<CapsuleCollider2D>();
+
         // uitext = GetComponent<TextMeshProUGUI>();
     }
     private void Update() {
@@ -84,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 
         }
         // Jumping
-        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground)) {
+        if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(ground)) {
             Jump();
         }
     }
@@ -102,7 +106,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
         else if (state == State.falling) {
-            if (coll.IsTouchingLayers(ground)) {
+            if (feet.IsTouchingLayers(ground)) {
                 state = State.idle;
             }
         }

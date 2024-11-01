@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -45,11 +46,20 @@ TagManager:
   - name: Background
     uniqueID: 2491096035
     locked: 0
+  - name: Middle
+    uniqueID: 3956948555
+    locked: 0
   - name: Entity
     uniqueID: 4180911369
     locked: 0
+  - name: Collectable
+    uniqueID: 3472947097
+    locked: 0
   - name: Foreground
     uniqueID: 2360887259
+    locked: 0
+  - name: ----
+    uniqueID: 3046527665
     locked: 0
   - name: OutOfBounds
     uniqueID: 496426805
