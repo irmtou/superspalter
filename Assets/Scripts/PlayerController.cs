@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     private enum State { idle, walking, jumping, falling, hurt, running };
     private State state = State.idle;
 
+    private enum StateMush { idle, bounce}
+
     // Inspector variables
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 5f;
@@ -61,6 +63,10 @@ public class PlayerController : MonoBehaviour {
                     rb.velocity = new Vector2(hurtForce, rb.velocity.y);
                 }
             }
+        }
+        else if (other.gameObject.tag == "Bouncer") {
+            Jump();
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {

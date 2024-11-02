@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Collectable
+  - Bouncer
   layers:
   - Default
   - TransparentFX
@@ -49,8 +50,14 @@ TagManager:
   - name: Middle
     uniqueID: 3956948555
     locked: 0
+  - name: Noninteractable
+    uniqueID: 2921800477
+    locked: 0
   - name: Entity
     uniqueID: 4180911369
+    locked: 0
+  - name: Bouncy
+    uniqueID: 3651934919
     locked: 0
   - name: Collectable
     uniqueID: 3472947097
