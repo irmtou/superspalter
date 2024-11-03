@@ -65,7 +65,8 @@ public class PlayerController : MonoBehaviour {
             }
         }
         else if (other.gameObject.tag == "Bouncer") {
-            Jump();
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce*1.5f);
+            state = State.jumping;
 
         }
     }
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Movement() {
         float hDirection = Input.GetAxis("Horizontal");
-
+        float vDirection = Input.GetAxis("Vertical");
         // Moving left
         if (hDirection < 0) {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
