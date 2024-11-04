@@ -10,16 +10,25 @@ public class SceneSwitcher : MonoBehaviour {
 
     private bool isInTransitionZone = false;
     private bool isInPlatformer = true;
-    private Vector3 platformerPosition;
-    private Vector3 topDownPosition;
+
 
     private void Start() {
-        platformerPosition = transform.position;
-        topDownPosition = new Vector3(transform.position.x, 0, transform.position.y);
-
+        
         // Set initial camera
         platformerCamera.Priority = 1; // Active camera
         topDownCamera.Priority = 0; // Inactive camera
+
+        // Set initial camera
+        platformerCamera.Priority = 1;  // Active camera
+        topDownCamera.Priority = 0;     // Inactive camera
+
+        // Check if we're switching into the top-down scene
+        if (!isInPlatformer) {
+            // Use the stored X position when entering the top-down scene
+            Vector3 newPosition = transform.position;
+            newPosition.x = PlayerPositionStorage.xPosition;
+            transform.position = newPosition;
+        }
     }
 
     private void Update() {
@@ -30,20 +39,19 @@ public class SceneSwitcher : MonoBehaviour {
 
     private void SwitchPerspective() {
         if (isInPlatformer) {
-            platformerPosition = transform.position;
-            topDownPosition = new Vector3(platformerPosition.x, 0, platformerPosition.y);
+            // Store the X position before switching to top-down
+            PlayerPositionStorage.xPosition = transform.position.x;
             SceneManager.LoadScene(TD); // Use the string reference
-            transform.position = topDownPosition;
 
             // Switch to top-down camera
             platformerCamera.Priority = 0;
             topDownCamera.Priority = 1;
         }
         else {
-            topDownPosition = transform.position;
-            platformerPosition = new Vector3(topDownPosition.x, topDownPosition.z, 0);
-            SceneManager.LoadScene(Plat); // Use the string reference
+            // Retrieve the X position when returning to the platformer
+            Vector3 platformerPosition = new Vector3(PlayerPositionStorage.xPosition, transform.position.y, transform.position.z);
             transform.position = platformerPosition;
+            SceneManager.LoadScene(Plat); // Use the string reference
 
             // Switch to platformer camera
             platformerCamera.Priority = 1;
