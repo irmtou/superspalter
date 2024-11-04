@@ -3,7 +3,9 @@ guid: ab2d858218715f04787a113b64fa5a78
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - platformerCamera: {fileID: 3268289786757969297, guid: 068b5d50a90b4f441a654469065c11cd, type: 3}
+  - topDownCamera: {fileID: 144526250379679740, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
