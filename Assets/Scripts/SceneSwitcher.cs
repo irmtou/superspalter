@@ -3,31 +3,28 @@ using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class SceneSwitcher : MonoBehaviour {
-    public string TD; // Use string for scene name
-    public string Plat; // Use string for scene name
+    public string TD;  // Name of the top-down scene
+    public string Plat;  // Name of the platformer scene
     public CinemachineVirtualCamera platformerCamera;
     public CinemachineVirtualCamera topDownCamera;
 
     private bool isInTransitionZone = false;
-    private bool isInPlatformer = true;
-
 
     private void Start() {
-        
-        // Set initial camera
-        platformerCamera.Priority = 1; // Active camera
-        topDownCamera.Priority = 0; // Inactive camera
+        // Check which scene was last active
+        string lastScene = PlayerPrefs.GetString("LastScene", Plat);
 
-        // Set initial camera
-        platformerCamera.Priority = 1;  // Active camera
-        topDownCamera.Priority = 0;     // Inactive camera
-
-        // Check if we're switching into the top-down scene
-        if (!isInPlatformer) {
-            // Use the stored X position when entering the top-down scene
-            Vector3 newPosition = transform.position;
-            newPosition.x = PlayerPositionStorage.xPosition;
-            transform.position = newPosition;
+        if (lastScene == Plat) {
+            // Position player for platformer view: Platformer X, Y fixed at 0
+            transform.position = new Vector3(PlayerPositionStorage.yPosition, 0, 0);
+            platformerCamera.Priority = 1;
+            topDownCamera.Priority = 0;
+        }
+        else {
+            // Position player for top-down view: Y based on Platformer X, X fixed at 0
+            transform.position = new Vector3(0, PlayerPositionStorage.xPosition, 0);
+            platformerCamera.Priority = 0;
+            topDownCamera.Priority = 1;
         }
     }
 
@@ -38,27 +35,34 @@ public class SceneSwitcher : MonoBehaviour {
     }
 
     private void SwitchPerspective() {
-        if (isInPlatformer) {
-            // Store the X position before switching to top-down
-            PlayerPositionStorage.xPosition = transform.position.x;
-            SceneManager.LoadScene(TD); // Use the string reference
+        string currentScene = SceneManager.GetActiveScene().name;
 
-            // Switch to top-down camera
+        if (currentScene == Plat) {
+            // Store Platformer X to use as Top-down Y
+            Debug.Log("PLAT -> TD");
+            PlayerPositionStorage.yPosition = transform.position.x;
+
+            // Switch to top-down
+            PlayerPrefs.SetString("LastScene", TD);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(TD);
+
             platformerCamera.Priority = 0;
             topDownCamera.Priority = 1;
         }
         else {
-            // Retrieve the X position when returning to the platformer
-            Vector3 platformerPosition = new Vector3(PlayerPositionStorage.xPosition, transform.position.y, transform.position.z);
-            transform.position = platformerPosition;
-            SceneManager.LoadScene(Plat); // Use the string reference
+            // Store Top-down Y to use as Platformer X
+            Debug.Log("TD -> PLAT");
+            PlayerPositionStorage.xPosition = transform.position.y;
 
-            // Switch to platformer camera
+            // Switch to platformer
+            PlayerPrefs.SetString("LastScene", Plat);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(Plat);
+
             platformerCamera.Priority = 1;
             topDownCamera.Priority = 0;
         }
-
-        isInPlatformer = !isInPlatformer;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

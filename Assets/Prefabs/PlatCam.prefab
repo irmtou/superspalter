@@ -50,15 +50,15 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 5.5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 1050
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -70,7 +70,19 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 0
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 7139968631566278820}
 --- !u!114 &6841626652381492527
@@ -99,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7139968631566278820}
   - component: {fileID: 8676521711867046705}
-  - component: {fileID: 582891588217318633}
+  - component: {fileID: 5231987777825906149}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -134,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &582891588217318633
+--- !u!114 &5231987777825906149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,21 +158,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0.523
-  m_LookaheadSmoothing: 2.8
+  m_TrackedObjectOffset: {x: 0, y: -1, z: 0}
+  m_LookaheadTime: 0.438
+  m_LookaheadSmoothing: 5.7
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1.8
-  m_YDamping: 1.4
+  m_XDamping: 3.1
+  m_YDamping: 3.8
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.51
+  m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.16
-  m_DeadZoneHeight: 0.19
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
-  m_UnlimitedSoftZone: 1
+  m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
