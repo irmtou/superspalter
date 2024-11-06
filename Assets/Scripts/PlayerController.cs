@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour {
             if (state == State.falling) {
                 Destroy(other.gameObject);
                 SoundFXManager.instance.PlaySoundFXClip(enemyPoofSoundClip, transform, 0.5f);
+                // jump() used to be here but i wanted it to be more flexible
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 state = State.jumping;
             }
@@ -135,9 +136,10 @@ public class PlayerController : MonoBehaviour {
             }
         }
         else if (state == State.falling) {
-            if (feet.IsTouchingLayers(ground)) {
+            if(feet.IsTouchingLayers(ground)) {
                 state = State.idle;
             }
+
         }
         else if (state == State.hurt) {
             if (Mathf.Abs(rb.velocity.x) < .1f) {
@@ -146,7 +148,12 @@ public class PlayerController : MonoBehaviour {
         }
         else if (Mathf.Abs(rb.velocity.x) > 2f) {
             // Go right
-            state = State.walking;
+            if (!feet.IsTouchingLayers(ground)) {
+                if (rb.velocity.y < .1f) {
+                    state = State.falling;
+                }
+            }
+            else { state = State.walking; }
         }
         else {
             state = State.idle;
