@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 // using UnityEngine.Tilemaps;
 // using UnityEngine.InputSystem;
 
@@ -18,6 +21,8 @@ public class PlayerConTD : MonoBehaviour {
 
     private Vector2 lastMoveDirection;
     private bool facingLeft = false;
+    [SerializeField] private int shards = 0;
+    [SerializeField] private TMP_Text shardsText;
     // List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
 
@@ -26,6 +31,9 @@ public class PlayerConTD : MonoBehaviour {
         anim = GetComponent<Animator>();
         // coll = GetComponent<Collider2D>();
         transform.position = new Vector3(0, GameManager.Instance.GetPlayerPositionX(), 0);
+
+        shards = GameManager.Instance.GetShardCount();
+        shardsText.text = shards.ToString();
 
     }
 
@@ -45,6 +53,15 @@ public class PlayerConTD : MonoBehaviour {
     private void FixedUpdate() {
         rb.velocity = movement * speed;
         // rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Collectable") {
+            Destroy(collision.gameObject);
+            shards = GameManager.Instance.GetShardCount() + 1;
+            GameManager.Instance.SetShardCount(shards);
+            shardsText.text = shards.ToString();
+        }
     }
 
     void ProcessInputs() {

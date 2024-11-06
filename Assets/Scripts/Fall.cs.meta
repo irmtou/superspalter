@@ -3,7 +3,8 @@ guid: 86668c14bbd61d54d961ec24a5ab6a4e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fallSoundClip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     // Start variables
@@ -14,11 +15,16 @@ public class PlayerController : MonoBehaviour {
     private CapsuleCollider2D body;
     // private Collider2D body;
 
+    [SerializeField] private AudioClip jumpSoundClip;
+    [SerializeField] private AudioClip shardSoundClip;
+    [SerializeField] private AudioClip enemyPoofSoundClip;
+    [SerializeField] private AudioClip fallSoundClip;
+
     // FSM
     private enum State { idle, walking, jumping, falling, hurt, running };
     private State state = State.idle;
 
-    private enum StateMush { idle, bounce}
+    
 
     // Inspector variables
     [SerializeField] private LayerMask ground;
@@ -37,6 +43,9 @@ public class PlayerController : MonoBehaviour {
         // Load saved position from GameManager if available
         transform.position = new Vector3(GameManager.Instance.GetPlayerPositionY(), 2, 0);
 
+        shards = GameManager.Instance.GetShardCount();
+        shardsText.text = shards.ToString();
+
         // uitext = GetComponent<TextMeshProUGUI>();
     }
 
@@ -54,7 +63,9 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.tag == "Enemy") {
             if (state == State.falling) {
                 Destroy(other.gameObject);
-                Jump();
+                SoundFXManager.instance.PlaySoundFXClip(enemyPoofSoundClip, transform, 0.5f);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                state = State.jumping;
             }
             else {
                 state = State.hurt;
@@ -74,12 +85,23 @@ public class PlayerController : MonoBehaviour {
             state = State.jumping;
 
         }
+        /*else if (other.gameObject.tag == "Fallen") {
+                SoundFXManager.instance.PlaySoundFXClip(fallSoundClip, transform, 0.5f);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }*/
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Collectable") {
             Destroy(collision.gameObject);
-            shards += 1;
+            SoundFXManager.instance.PlaySoundFXClip(shardSoundClip, transform, 0.5f);
+            shards = GameManager.Instance.GetShardCount() + 1;
+            GameManager.Instance.SetShardCount(shards);
             shardsText.text = shards.ToString();
+        }
+        if (collision.tag == "Fallen") {
+            SoundFXManager.instance.PlaySoundFXClip(fallSoundClip, transform, 0.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
     }
 
@@ -108,6 +130,7 @@ public class PlayerController : MonoBehaviour {
     private void Jump() {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         state = State.jumping;
+        SoundFXManager.instance.PlaySoundFXClip(jumpSoundClip, transform, 0.5f);
     }
 
     private void AnimationState() {

@@ -8,6 +8,7 @@ TagManager:
   - Collectable
   - Bouncer
   - TransitionZone
+  - Fallen
   layers:
   - Default
   - TransparentFX

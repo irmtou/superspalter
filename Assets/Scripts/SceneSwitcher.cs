@@ -7,6 +7,7 @@ public class SceneSwitcher : MonoBehaviour {
     public string Plat = "Plat"; // Name of the platformer scene
     public CinemachineVirtualCamera platformerCamera;
     public CinemachineVirtualCamera topDownCamera;
+    [SerializeField] public AudioClip spalterSoundClip;
 
     private bool isInTransitionZone = false;
 

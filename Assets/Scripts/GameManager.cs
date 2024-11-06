@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public static float currX;
     public static float currY;
 
+    public static int currShards;
+
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -34,5 +36,13 @@ public class GameManager : MonoBehaviour {
     }
     public float GetPlayerPositionY() {
         return currY;
+    }
+
+    public int GetShardCount() {
+        return currShards;     
+    }
+
+    public void SetShardCount(int shardCount) {
+        currShards = shardCount;
     }
 }

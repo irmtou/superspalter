@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299871280964829484}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.846, y: -13.619, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdbefe1f57e9594c81d6af43106cad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shroomSoundClip: {fileID: 8300000, guid: 92a467cf6dab0624cabb08c888d7d311, type: 3}
 --- !u!70 &1626280428013740793
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
