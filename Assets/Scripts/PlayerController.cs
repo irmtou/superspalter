@@ -156,7 +156,10 @@ public class PlayerController : MonoBehaviour {
             else { state = State.walking; }
         }
         else {
-            state = State.idle;
+            if (rb.velocity.y < .1f) {
+                state = State.falling;
+            }
+            else { state = State.idle; }
         }
     }
  
