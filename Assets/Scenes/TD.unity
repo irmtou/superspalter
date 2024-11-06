@@ -9434,6 +9434,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1096791125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096791127}
+  - component: {fileID: 1096791126}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1096791126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096791125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfcebc9ef186a6468618a79d7918eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTDPosition: 0
+  xPlatPosition: 0
+--- !u!4 &1096791127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096791125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1190052, y: 2.4443624, z: 0.05215116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1110656630
 GameObject:
   m_ObjectHideFlags: 0
@@ -9677,6 +9723,8 @@ MonoBehaviour:
   Plat: TD
   platformerCamera: {fileID: 3268289786757969297, guid: 068b5d50a90b4f441a654469065c11cd, type: 3}
   topDownCamera: {fileID: 1698114453}
+  currGameObject: {fileID: 0}
+  sceneIndex: -1
 --- !u!1 &1549957603
 GameObject:
   m_ObjectHideFlags: 0
@@ -14584,6 +14632,8 @@ MonoBehaviour:
   Plat: 
   platformerCamera: {fileID: 1698114453}
   topDownCamera: {fileID: 1698114453}
+  currGameObject: {fileID: 0}
+  sceneIndex: -1
 --- !u!1001 &1894839169341744418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14735,3 +14785,4 @@ SceneRoots:
   - {fileID: 786684444}
   - {fileID: 51420814}
   - {fileID: 1110656631}
+  - {fileID: 1096791127}

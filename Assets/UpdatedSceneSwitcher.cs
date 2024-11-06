@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 
@@ -114,4 +114,4 @@ public class UpdatedSceneSwitcher : MonoBehaviour {
             Debug.Log("Exited transition zone");
         }
     }
-}
+}*/

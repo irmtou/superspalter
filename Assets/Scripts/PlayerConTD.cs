@@ -25,7 +25,11 @@ public class PlayerConTD : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         // coll = GetComponent<Collider2D>();
+        transform.position = new Vector3(0, GameManager.Instance.GetPlayerPositionX(), 0);
+
     }
+
+
 
 
     void Update()

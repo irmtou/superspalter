@@ -34,8 +34,13 @@ public class PlayerController : MonoBehaviour {
         feet = GetComponent<BoxCollider2D>();
         body = GetComponent<CapsuleCollider2D>();
 
+        // Load saved position from GameManager if available
+        transform.position = new Vector3(GameManager.Instance.GetPlayerPositionY(), 2, 0);
+
         // uitext = GetComponent<TextMeshProUGUI>();
     }
+
+
     private void Update() {
 
         if (state != State.hurt) {
@@ -130,5 +135,6 @@ public class PlayerController : MonoBehaviour {
             state = State.idle;
         }
     }
+ 
 }
 
