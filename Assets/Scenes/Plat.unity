@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 138045667}
   - component: {fileID: 138045668}
   - component: {fileID: 138045669}
+  - component: {fileID: 138045670}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -515,9 +516,17 @@ MonoBehaviour:
   Plat: Plat
   platformerCamera: {fileID: 1250394742}
   topDownCamera: {fileID: 144526250379679740, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
-  spalterSoundClip: {fileID: 8300000, guid: 0bcf6fad443f9d94ba2e6064022cc470, type: 3}
+  spalterSoundClip: {fileID: 8300000, guid: 43b9b3b535a2f714a8f8c2641cb1066c, type: 3}
   currGameObject: {fileID: 0}
   sceneIndex: -1
+--- !u!81 &138045670
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138045661}
+  m_Enabled: 0
 --- !u!1001 &149751672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34528,7 +34537,7 @@ MonoBehaviour:
   Plat: Plat
   platformerCamera: {fileID: 1250394742}
   topDownCamera: {fileID: 1250394742}
-  spalterSoundClip: {fileID: 8300000, guid: 0bcf6fad443f9d94ba2e6064022cc470, type: 3}
+  spalterSoundClip: {fileID: 0}
   currGameObject: {fileID: 0}
   sceneIndex: -1
 --- !u!114 &519420035
@@ -129685,6 +129694,10 @@ PrefabInstance:
     - target: {fileID: 7260647960450225858, guid: 068b5d50a90b4f441a654469065c11cd, type: 3}
       propertyPath: m_Name
       value: PlatCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260647960450225858, guid: 068b5d50a90b4f441a654469065c11cd, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

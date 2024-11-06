@@ -24,7 +24,7 @@ public class SoundFXManager : MonoBehaviour {
 
         float clipLength = audioSource.clip.length;
 
-        Destroy(audioSource.gameObject, clipLength);
+        Destroy(audioSource.gameObject, clipLength+1);
     }
 
     public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume) {

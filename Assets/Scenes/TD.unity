@@ -10017,7 +10017,7 @@ MonoBehaviour:
   Plat: TD
   platformerCamera: {fileID: 3268289786757969297, guid: 068b5d50a90b4f441a654469065c11cd, type: 3}
   topDownCamera: {fileID: 1698114453}
-  spalterSoundClip: {fileID: 8300000, guid: 0bcf6fad443f9d94ba2e6064022cc470, type: 3}
+  spalterSoundClip: {fileID: 8300000, guid: 43b9b3b535a2f714a8f8c2641cb1066c, type: 3}
   currGameObject: {fileID: 0}
   sceneIndex: -1
 --- !u!1 &1549957603
@@ -14224,6 +14224,10 @@ PrefabInstance:
     - target: {fileID: 1822435977869350649, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
       propertyPath: m_Name
       value: TDCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822435977869350649, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 1836304332026764585, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
       propertyPath: m_BoundingShape2D

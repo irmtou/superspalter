@@ -45,4 +45,8 @@ public class GameManager : MonoBehaviour {
     public void SetShardCount(int shardCount) {
         currShards = shardCount;
     }
+    public void PlaySound(AudioClip clip) {
+        SoundFXManager.instance.PlaySoundFXClip(clip, transform, 0.5f);
+        Debug.Log("Played sound from GameManager");
+    }
 }

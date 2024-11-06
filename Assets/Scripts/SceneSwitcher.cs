@@ -7,7 +7,7 @@ public class SceneSwitcher : MonoBehaviour {
     public string Plat = "Plat"; // Name of the platformer scene
     public CinemachineVirtualCamera platformerCamera;
     public CinemachineVirtualCamera topDownCamera;
-    [SerializeField] public AudioClip spalterSoundClip;
+    [SerializeField] private AudioClip spalterSoundClip;
 
     private bool isInTransitionZone = false;
 
@@ -43,6 +43,7 @@ public class SceneSwitcher : MonoBehaviour {
 
     private void Update() {
         if (isInTransitionZone && Input.GetKeyDown(KeyCode.Tab)) {
+            GameManager.Instance.PlaySound(spalterSoundClip);
             SavePosition();
             /*if (sceneIndex == PLAT_INDEX) {
                 currGameObject = GameObject.Find("Player-TD");
@@ -72,13 +73,14 @@ public class SceneSwitcher : MonoBehaviour {
             GameManager.Instance.SavePlayerPosition(transform.position);
 // Switch to top-down
             SceneManager.LoadScene(TD_INDEX);
-            SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
+            
 
             // Update player position in new scene based on stored value
             other.gameObject.transform.position = new Vector3(0, GameManager.Instance.GetPlayerPositionX(), 0);
 
             platformerCamera.Priority = 0;
             topDownCamera.Priority = 1;
+            //SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
         }
         else {
             Debug.Log("TD -> PLAT");
@@ -88,7 +90,7 @@ public class SceneSwitcher : MonoBehaviour {
             GameManager.Instance.SavePlayerPosition(transform.position);
  // Switch to platformer
             SceneManager.LoadScene(PLAT_INDEX);
-            SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
+            
 
 
             // Update player position in new scene based on stored value
@@ -96,6 +98,7 @@ public class SceneSwitcher : MonoBehaviour {
 
             platformerCamera.Priority = 1;
             topDownCamera.Priority = 0;
+            //SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
         }
 
         /*Debug.Log("After transition STATS: ");
