@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour {
     private void Update() {
 
         if (state != State.hurt) {
-            Movement(); 
+            Movement();
+            
         }
         AnimationState();
         anim.SetInteger("state", (int)state); // Sets animation based on Enumerator state
@@ -85,10 +86,7 @@ public class PlayerController : MonoBehaviour {
             state = State.jumping;
 
         }
-        /*else if (other.gameObject.tag == "Fallen") {
-                SoundFXManager.instance.PlaySoundFXClip(fallSoundClip, transform, 0.5f);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }*/
+       
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Collectable") {
@@ -97,11 +95,6 @@ public class PlayerController : MonoBehaviour {
             shards = GameManager.Instance.GetShardCount() + 1;
             GameManager.Instance.SetShardCount(shards);
             shardsText.text = shards.ToString();
-        }
-        if (collision.tag == "Fallen") {
-            SoundFXManager.instance.PlaySoundFXClip(fallSoundClip, transform, 0.5f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
         }
     }
 
@@ -124,6 +117,7 @@ public class PlayerController : MonoBehaviour {
         // Jumping
         if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(ground)) {
             Jump();
+            
         }
     }
 

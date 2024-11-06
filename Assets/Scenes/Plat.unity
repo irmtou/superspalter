@@ -818,10 +818,9 @@ GameObject:
   - component: {fileID: 480690482}
   - component: {fileID: 480690481}
   - component: {fileID: 480690484}
-  - component: {fileID: 480690485}
   m_Layer: 0
   m_Name: FallBoundary
-  m_TagString: Untagged
+  m_TagString: Fallen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,7 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
-  fallSoundClip: {fileID: 0}
+  fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
 --- !u!61 &480690482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -908,30 +907,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480690480}
   m_Enabled: 0
---- !u!114 &480690485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480690480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eec39ca0a890324c94e7e5c4e86745f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSoundClip: {fileID: 0}
-  shardSoundClip: {fileID: 0}
-  enemyPoofSoundClip: {fileID: 0}
-  fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
-  ground:
-    serializedVersion: 2
-    m_Bits: 0
-  speed: 5
-  jumpForce: 10
-  shards: 0
-  shardsText: {fileID: 0}
-  hurtForce: 10
 --- !u!1 &509861638
 GameObject:
   m_ObjectHideFlags: 0
@@ -34421,6 +34396,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -34555,6 +34531,30 @@ MonoBehaviour:
   spalterSoundClip: {fileID: 8300000, guid: 0bcf6fad443f9d94ba2e6064022cc470, type: 3}
   currGameObject: {fileID: 0}
   sceneIndex: -1
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eec39ca0a890324c94e7e5c4e86745f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSoundClip: {fileID: 0}
+  shardSoundClip: {fileID: 0}
+  enemyPoofSoundClip: {fileID: 0}
+  fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  speed: 5
+  jumpForce: 10
+  shards: 0
+  shardsText: {fileID: 0}
+  hurtForce: 10
 --- !u!4 &528546185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 403839301455990943, guid: 412a869c85f854647a25d9c3f8d7e203, type: 3}

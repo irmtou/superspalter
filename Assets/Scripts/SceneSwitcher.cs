@@ -51,6 +51,7 @@ public class SceneSwitcher : MonoBehaviour {
                 currGameObject = GameObject.Find("Player");
             }*/
             SwitchPerspective(gameObject);
+            
         }
     }
 
@@ -61,6 +62,7 @@ public class SceneSwitcher : MonoBehaviour {
     }
 
     private void SwitchPerspective(GameObject other) {
+        
         if (sceneIndex == PLAT_INDEX) {
             Debug.Log("PLAT -> TD");
 
@@ -70,6 +72,7 @@ public class SceneSwitcher : MonoBehaviour {
             GameManager.Instance.SavePlayerPosition(transform.position);
 // Switch to top-down
             SceneManager.LoadScene(TD_INDEX);
+            SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
 
             // Update player position in new scene based on stored value
             other.gameObject.transform.position = new Vector3(0, GameManager.Instance.GetPlayerPositionX(), 0);
@@ -85,6 +88,7 @@ public class SceneSwitcher : MonoBehaviour {
             GameManager.Instance.SavePlayerPosition(transform.position);
  // Switch to platformer
             SceneManager.LoadScene(PLAT_INDEX);
+            SoundFXManager.instance.PlaySoundFXClip(spalterSoundClip, transform, 0.5f);
 
 
             // Update player position in new scene based on stored value
