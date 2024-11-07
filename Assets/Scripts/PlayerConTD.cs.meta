@@ -3,7 +3,10 @@ guid: 51de0fed800bbcf42ae60f8e12f2285d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shardsText: {instanceID: 0}
+  - spalterSoundClip: {instanceID: 0}
+  - fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

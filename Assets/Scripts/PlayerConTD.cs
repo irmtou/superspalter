@@ -24,6 +24,10 @@ public class PlayerConTD : MonoBehaviour {
     [SerializeField] private int shards = 0;
     [SerializeField] private TMP_Text shardsText;
     [SerializeField] private AudioClip spalterSoundClip;
+
+    [SerializeField] public AudioClip fallSoundClip;
+
+    [SerializeField] private LayerMask wawa;
     // List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
 
@@ -43,16 +47,19 @@ public class PlayerConTD : MonoBehaviour {
 
 
 
-    void Update()
-    {
+    void Update() {
         ProcessInputs();
         Animate();
-        if(movement.x < 0 && !facingLeft || movement.x > 0 && facingLeft) {
+        if (movement.x < 0 && !facingLeft || movement.x > 0 && facingLeft) {
             Flip();
         }
+        /*if (rb.IsTouchingLayers(wawa)) {
+            transform.localScale = new Vector2(0, 0);
+            SoundFXManager.instance.PlaySoundFXClip(fallSoundClip, transform, 0.5f);
+            transform.position = new Vector3(0, GameManager.Instance.GetPlayerPositionY());
 
+        }*/
     }
-
     private void FixedUpdate() {
         rb.velocity = movement * speed;
         // rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.deltaTime);

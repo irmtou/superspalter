@@ -261,6 +261,11 @@ MonoBehaviour:
   speed: 5
   shards: 0
   shardsText: {fileID: 0}
+  spalterSoundClip: {fileID: 8300000, guid: 43b9b3b535a2f714a8f8c2641cb1066c, type: 3}
+  fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
+  wawa:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!95 &8752750709416170799
 Animator:
   serializedVersion: 5
