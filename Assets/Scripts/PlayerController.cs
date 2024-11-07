@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private AudioClip shardSoundClip;
     [SerializeField] private AudioClip enemyPoofSoundClip;
     [SerializeField] private AudioClip fallSoundClip;
+    [SerializeField] private AudioClip spalterSoundClip;
+    [SerializeField] private AudioClip ouchSoundClip;
 
     // FSM
     private enum State { idle, walking, jumping, falling, hurt, running };
@@ -40,6 +42,14 @@ public class PlayerController : MonoBehaviour {
         feet = GetComponent<BoxCollider2D>();
         body = GetComponent<CapsuleCollider2D>();
 
+        // if previous scene was itself, load player positions normally
+
+        int lastScene = GameManager.Instance.GetLastScene();
+        int currScene = SceneManager.GetActiveScene().buildIndex;
+        if(lastScene == currScene) {
+            transform.position = new Vector3(GameManager.Instance.GetPlayerPositionX(), GameManager.Instance.GetPlayerPositionY(), 0);
+        }
+        // else load player from TD
         // Load saved position from GameManager if available
         transform.position = new Vector3(GameManager.Instance.GetPlayerPositionY(), 2, 0);
 
@@ -47,14 +57,25 @@ public class PlayerController : MonoBehaviour {
         shardsText.text = shards.ToString();
 
         // uitext = GetComponent<TextMeshProUGUI>();
+        GameManager.Instance.PlaySound(spalterSoundClip);
+
+        InvokeRepeating("PeriodicUpdate", 0f, 2f);
     }
 
+    void PeriodicUpdate() {
+        if (feet.IsTouchingLayers(ground))
+        {
+            GameManager.Instance.SavePlayerPosition(transform.position);
+        }
+        
+    }
 
     private void Update() {
 
         if (state != State.hurt) {
             Movement();
             
+
         }
         AnimationState();
         anim.SetInteger("state", (int)state); // Sets animation based on Enumerator state
@@ -71,6 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
             else {
                 state = State.hurt;
+                SoundFXManager.instance.PlaySoundFXClip(ouchSoundClip, transform, 0.5f);
                 if (other.gameObject.transform.position.x > transform.position.x) {
                     // Enemy is on the right, player will be damaged and moved left
                     // .this is implied
@@ -137,6 +159,7 @@ public class PlayerController : MonoBehaviour {
         }
         else if (state == State.falling) {
             if(feet.IsTouchingLayers(ground)) {
+
                 state = State.idle;
             }
 
@@ -159,7 +182,9 @@ public class PlayerController : MonoBehaviour {
             if (rb.velocity.y < .1f) {
                 state = State.falling;
             }
-            else { state = State.idle; }
+            else { state = State.idle;
+                
+            }
         }
     }
  

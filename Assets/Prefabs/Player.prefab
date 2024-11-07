@@ -83,7 +83,7 @@ MonoBehaviour:
   platformerCamera: {fileID: 0}
   topDownCamera: {fileID: 144526250379679740, guid: a85298293a8120944b978d7f2a31df0c, type: 3}
   spalterSoundClip: {fileID: 8300000, guid: 43b9b3b535a2f714a8f8c2641cb1066c, type: 3}
-  currGameObject: {fileID: 0}
+  currGameObject: {fileID: 5551475005174866732, guid: 458f85546893c304fa07cb59afa62bc2, type: 3}
   sceneIndex: -1
 --- !u!212 &7438682444673871465
 SpriteRenderer:
@@ -174,6 +174,8 @@ MonoBehaviour:
   shardSoundClip: {fileID: 8300000, guid: 203558cebfd0ff440940912dd8b2b478, type: 3}
   enemyPoofSoundClip: {fileID: 8300000, guid: 1f79feb39b5f3914c8b2dd6d8fe28550, type: 3}
   fallSoundClip: {fileID: 8300000, guid: 4c3e50b828412ad478ef1587dc3a08c0, type: 3}
+  spalterSoundClip: {fileID: 8300000, guid: 43b9b3b535a2f714a8f8c2641cb1066c, type: 3}
+  ouchSoundClip: {fileID: 8300000, guid: fbdb73dfbecc3054caf435c4dd86b4f6, type: 3}
   ground:
     serializedVersion: 2
     m_Bits: 256

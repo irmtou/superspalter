@@ -34,7 +34,7 @@ public class Shrooms : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == ("Player") && state != State.bounce) {
             state = State.bounce;
-            SoundFXManager.instance.PlaySoundFXClip(shroomSoundClip, transform, 0.5f);
+            SoundFXManager.instance.PlaySoundFXClip(shroomSoundClip, transform, 0.9f);
 
         }
        

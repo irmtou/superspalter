@@ -23,6 +23,7 @@ public class PlayerConTD : MonoBehaviour {
     private bool facingLeft = false;
     [SerializeField] private int shards = 0;
     [SerializeField] private TMP_Text shardsText;
+    [SerializeField] private AudioClip spalterSoundClip;
     // List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
 
@@ -34,6 +35,8 @@ public class PlayerConTD : MonoBehaviour {
 
         shards = GameManager.Instance.GetShardCount();
         shardsText.text = shards.ToString();
+
+        GameManager.Instance.PlaySound(spalterSoundClip);
 
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour {
 
     public static int currShards;
 
+    public static int prevScene;
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -33,6 +35,12 @@ public class GameManager : MonoBehaviour {
     // Method to retrieve position as Vector3
     public float GetPlayerPositionX() {
         return currX;
+    }
+    public int GetLastScene() {
+        return prevScene;
+    }
+    public void SetSceneFromBefore(int sceneb4) {
+        prevScene = sceneb4;
     }
     public float GetPlayerPositionY() {
         return currY;

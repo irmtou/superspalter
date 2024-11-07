@@ -43,16 +43,17 @@ public class SceneSwitcher : MonoBehaviour {
 
     private void Update() {
         if (isInTransitionZone && Input.GetKeyDown(KeyCode.Tab)) {
-            GameManager.Instance.PlaySound(spalterSoundClip);
-            SavePosition();
+            
             /*if (sceneIndex == PLAT_INDEX) {
                 currGameObject = GameObject.Find("Player-TD");
             }
             else {
                 currGameObject = GameObject.Find("Player");
             }*/
+            SavePosition();
             SwitchPerspective(gameObject);
             
+
         }
     }
 
