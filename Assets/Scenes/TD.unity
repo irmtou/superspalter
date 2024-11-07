@@ -12003,6 +12003,7 @@ MonoBehaviour:
   platformerCamera: {fileID: 1698114453}
   topDownCamera: {fileID: 1698114453}
   spalterSoundClip: {fileID: 0}
+  chimes: {fileID: 0}
   currGameObject: {fileID: 0}
   sceneIndex: -1
 --- !u!1 &1867988083
@@ -12378,6 +12379,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2880900226124047444, guid: 458f85546893c304fa07cb59afa62bc2, type: 3}
+      propertyPath: chimes
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8755bb2e492f540b7c2c18818a32ef, type: 3}
     - target: {fileID: 2880900226124047444, guid: 458f85546893c304fa07cb59afa62bc2, type: 3}
       propertyPath: topDownCamera
       value: 

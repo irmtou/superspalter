@@ -17,22 +17,24 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         if (Instance != null && Instance != this) {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject); 
+            // no duplicates
         }
         else {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep GameManager across scenes
+            // this keeps GameManager across scenes
+            DontDestroyOnLoad(gameObject); 
         }
     }
 
-    // Method to update position data
+    // Setters
     public void SavePlayerPosition(Vector3 position) {
         currX = position.x;
         currY = position.y;
         Debug.Log("Saved position in GameManager: " + currX + ", " + currY);
     }
 
-    // Method to retrieve position as Vector3
+    // Getters
     public float GetPlayerPositionX() {
         return currX;
     }
@@ -57,4 +59,5 @@ public class GameManager : MonoBehaviour {
         SoundFXManager.instance.PlaySoundFXClip(clip, transform, 0.5f);
         Debug.Log("Played sound from GameManager");
     }
+  
 }

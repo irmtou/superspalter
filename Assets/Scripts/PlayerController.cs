@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private AudioClip spalterSoundClip;
     [SerializeField] private AudioClip ouchSoundClip;
     [SerializeField] private AudioClip yippeeSoundClip;
+    
 
     // FSM
     private enum State { idle, walking, jumping, falling, hurt, running };
@@ -60,9 +61,11 @@ public class PlayerController : MonoBehaviour {
         // uitext = GetComponent<TextMeshProUGUI>();
         GameManager.Instance.PlaySound(spalterSoundClip);
 
-        InvokeRepeating("PeriodicUpdate", 0f, 2f);
+        InvokeRepeating("PeriodicUpdate", 0f, 1f);
     }
 
+
+    // for respawning
     void PeriodicUpdate() {
         if (feet.IsTouchingLayers(ground))
         {

@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class SceneSwitcher : MonoBehaviour {
     public string TD = "TD"; // Name of the top-down scene
@@ -8,6 +9,7 @@ public class SceneSwitcher : MonoBehaviour {
     public CinemachineVirtualCamera platformerCamera;
     public CinemachineVirtualCamera topDownCamera;
     [SerializeField] private AudioClip spalterSoundClip;
+    [SerializeField] private AudioClip chimes;
 
     private bool isInTransitionZone = false;
 
@@ -28,33 +30,37 @@ public class SceneSwitcher : MonoBehaviour {
         if (sceneIndex == PLAT_INDEX) {
             // PLATFORMER
             // Position player for platformer view
-            /*transform.position = new Vector3(GameManager.Instance.yTDPosition, 4, 0);*/
+          
             platformerCamera.Priority = 1;
             topDownCamera.Priority = 0;
         }
         else {
             // TOPDOWN
             // Position player for top-down view
-            /*transform.position = new Vector3(0, GameManager.Instance.xPlatPosition, 0);*/
+
             platformerCamera.Priority = 0;
             topDownCamera.Priority = 1;
         }
     }
 
     private void Update() {
-        if (isInTransitionZone && Input.GetKeyDown(KeyCode.Tab)) {
-            
-            /*if (sceneIndex == PLAT_INDEX) {
-                currGameObject = GameObject.Find("Player-TD");
-            }
-            else {
-                currGameObject = GameObject.Find("Player");
-            }*/
-            SavePosition();
-            Destroy(gameObject); // addition
-            SwitchPerspective(gameObject);
-            
+        if (isInTransitionZone) {
+            if (Input.GetKeyDown(KeyCode.Tab)) {
 
+
+                /*if (sceneIndex == PLAT_INDEX) {
+                    currGameObject = GameObject.Find("Player-TD");
+                }
+                else {
+                    currGameObject = GameObject.Find("Player");
+                }*/
+                SavePosition();
+                Destroy(gameObject); // addition
+                SwitchPerspective(gameObject);
+
+
+
+            }
         }
     }
 
@@ -113,12 +119,14 @@ public class SceneSwitcher : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("TransitionZone")) {
             isInTransitionZone = true;
+            GameManager.Instance.PlaySound(chimes);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("TransitionZone")) {
             isInTransitionZone = false;
+            
         }
     }
 }

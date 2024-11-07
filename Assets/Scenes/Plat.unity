@@ -34209,6 +34209,7 @@ MonoBehaviour:
   platformerCamera: {fileID: 1250394742}
   topDownCamera: {fileID: 1250394742}
   spalterSoundClip: {fileID: 0}
+  chimes: {fileID: 0}
   currGameObject: {fileID: 0}
   sceneIndex: -1
 --- !u!114 &519420035
@@ -129598,6 +129599,18 @@ PrefabInstance:
       propertyPath: m_UsedByComposite
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5963778243614406190, guid: fde2fe3c600cc4c48bb0b9c2420ac9d6, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963778243614406190, guid: fde2fe3c600cc4c48bb0b9c2420ac9d6, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270329601388908012, guid: fde2fe3c600cc4c48bb0b9c2420ac9d6, type: 3}
+      propertyPath: chimes
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8755bb2e492f540b7c2c18818a32ef, type: 3}
     - target: {fileID: 6270329601388908012, guid: fde2fe3c600cc4c48bb0b9c2420ac9d6, type: 3}
       propertyPath: platformerCamera
       value: 

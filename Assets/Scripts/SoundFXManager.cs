@@ -7,6 +7,7 @@ public class SoundFXManager : MonoBehaviour {
 
     [SerializeField] public AudioSource soundFXObject;
 
+
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -24,7 +25,7 @@ public class SoundFXManager : MonoBehaviour {
 
         float clipLength = audioSource.clip.length;
 
-        Destroy(audioSource.gameObject, clipLength+1);
+        Destroy(audioSource.gameObject, clipLength + 1);
     }
 
     public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume) {
@@ -43,4 +44,6 @@ public class SoundFXManager : MonoBehaviour {
 
         Destroy(audioSource.gameObject, clipLength);
     }
+
+    
 }
