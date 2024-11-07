@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private AudioClip fallSoundClip;
     [SerializeField] private AudioClip spalterSoundClip;
     [SerializeField] private AudioClip ouchSoundClip;
+    [SerializeField] private AudioClip yippeeSoundClip;
 
     // FSM
     private enum State { idle, walking, jumping, falling, hurt, running };
@@ -118,6 +119,13 @@ public class PlayerController : MonoBehaviour {
             shards = GameManager.Instance.GetShardCount() + 1;
             GameManager.Instance.SetShardCount(shards);
             shardsText.text = shards.ToString();
+        }
+        if (collision.tag == "Yippee") {
+            
+            SoundFXManager.instance.PlaySoundFXClip(yippeeSoundClip, transform, 0.5f);
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
+
         }
     }
 

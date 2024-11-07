@@ -51,6 +51,7 @@ public class SceneSwitcher : MonoBehaviour {
                 currGameObject = GameObject.Find("Player");
             }*/
             SavePosition();
+            Destroy(gameObject); // addition
             SwitchPerspective(gameObject);
             
 

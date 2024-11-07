@@ -9,6 +9,7 @@ TagManager:
   - Bouncer
   - TransitionZone
   - Fallen
+  - Yippee
   layers:
   - Default
   - TransparentFX
